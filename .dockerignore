@@ -1,0 +1,24 @@
+# Binaries compiled locally
+pymdrop
+pymdrop.exe
+*.exe
+
+# Test files
+*_test.go
+*.test
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# Docs
+*.md
+docs/
+
+# Docker
+Dockerfile
+.dockerignore

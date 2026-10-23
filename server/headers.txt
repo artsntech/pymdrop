@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: X-Original-Size, X-Compressed-Size, X-ProxyDrop-Fallback
+Cache-Control: public, max-age=86400
+Content-Length: 693
+Content-Type: image/png
+Timing-Allow-Origin: *
+X-Compressed-Size: 693
+X-ProxyDrop-Fallback: small
+X-Original-Size: 693
+Date: Sat, 10 Oct 2026 14:44:05 GMT
+

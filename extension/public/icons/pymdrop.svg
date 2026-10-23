@@ -1,0 +1,15 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fundo arredondado (estilo ícone de app) -->
+  <rect width="128" height="128" rx="28" fill="#FFFFFF"/>
+  
+  <!-- Contorno da Gota (Azul Royal) -->
+  <path d="M64 16 C64 16 96 56 96 80 C96 97.6731 81.6731 112 64 112 C46.3269 112 32 97.6731 32 80 C32 56 64 16 64 16Z" fill="#E6F0FF" stroke="#1C4ED8" stroke-width="8" stroke-linejoin="round"/>
+  
+  <!-- Barras do Funil (Azul Royal) - A diminuir de tamanho -->
+  <rect x="46" y="64" width="36" height="8" rx="4" fill="#1C4ED8"/>
+  <rect x="52" y="78" width="24" height="8" rx="4" fill="#1C4ED8"/>
+  <rect x="58" y="92" width="12" height="8" rx="4" fill="#1C4ED8"/>
+  
+  <!-- Sparkle (Estrela) no canto superior direito, para ligar ao logo antigo -->
+  <path d="M96 28 L100 36 L108 40 L100 44 L96 52 L92 44 L84 40 L92 36 Z" fill="#1C4ED8"/>
+</svg>

@@ -1,0 +1,19 @@
+# Server
+server/pymdrop
+server/pymdrop.exe
+server/*.test
+
+# Extension
+extension/node_modules/
+extension/dist/
+extension/dist-firefox/
+extension/temp-background/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

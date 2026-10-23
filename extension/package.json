@@ -1,0 +1,28 @@
+{
+  "name": "pymdrop-extension",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:firefox": "tsc && cross-env BROWSER=firefox vite build",
+    "build:all": "npm run build && npm run build:firefox",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "@types/node": "^26.6.5",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "cross-env": "^7.0.3",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.1",
+    "vite-plugin-static-copy": "^2.0.0"
+  }
+}
