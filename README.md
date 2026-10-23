@@ -19,7 +19,7 @@
 The typical result on unoptimized websites is an **80–90% reduction in image weight**, with noticeable improvements in loading speed and mobile data consumption. It also blocks trackers, ads, and telemetry domains.
 
 ### Why was this built?
-The project was heavily inspired by the original [Compy project](https://github.com) (an HTTP forward proxy from 2015). While Compy worked via a browser proxy (requiring users to configure PAC files and trust root certificates), **PymDrop modernizes this concept for the Manifest V3 browser extension era**, making it accessible to anyone with a single click.
+The project was heavily inspired by the original [Compy project](https://github.com/barnacs/compy) (an HTTP forward proxy from 2015). While Compy worked via a browser proxy (requiring users to configure PAC files and trust root certificates), **PymDrop modernizes this concept for the Manifest V3 browser extension era**, making it accessible to anyone with a single click.
 
 ### The Name and Logo
 The name **PymDrop** merges technical identity with the metaphor of lightness. "Pym" gives it a modern, brandable touch, while "Drop" represents the fluidity of optimized data and the literal "dropping" of dead weight from web pages. 
