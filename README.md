@@ -7,7 +7,7 @@
 [![Chrome](https://shields.io)](#)
 [![Firefox](https://shields.io)](#)
 
-![PymDrop Popup](docs/screenshot-popup.png)
+![PymDrop Popup](docs/screenshot-popup.jpg)
 
 ## What is PymDrop?
 
