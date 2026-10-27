@@ -2,6 +2,7 @@
 
 > A browser extension that compresses images in real-time before they reach your screen, and blocks trackers. Save data, speed up pages, respect your privacy.
 
+[![PymDrop on Firefox Add-ons](https://img.shields.io/badge/Firefox_Add--ons-Available-FF7139?logo=firefoxbrowser&logoColor=white)](https://addons.mozilla.org/addon/pymdrop/)
 [![License: MIT](https://shields.io)](https://opensource.org)
 [![Go Version](https://shields.io)](https://go.dev)
 [![Chrome](https://shields.io)](#)
@@ -34,7 +35,7 @@ The icon materializes this concept: a geometric drop containing a data funnel (t
 ┌────────────────┐        1. Request for photo.jpg          ┌──────────────────┐
 │                │ ──────────────────────────────────────▶  │                  │
 │    Browser     │                                          │   Origin Server  │
-│  + extension   │        4. Compressed WebP Image           │  (CDN or server) │
+│  + extension   │        4. Compressed WebP Image          │  (CDN or server) │
 │                │ ◀──────────────────────────────────────  │                  │
 └────────┬───────┘                                          └──────────────────┘
          │
@@ -101,6 +102,11 @@ npm run build
 3. Open the popup, click **Advanced Settings**, and paste your Server URL.
 
 #### Firefox
+
+* **The easiest way:** Install directly from the [official Firefox Add-ons store](https://addons.mozilla.org/addon/pymdrop/).
+
+* **For local development:**
+
 ```bash
 cd extension
 npm install
@@ -133,7 +139,6 @@ For a deep dive into the architectural decisions (why not AVIF? why DNR instead 
 
 ## Further Improvements (Roadmap)
 
-* [ ] Publish to the Firefox AMO (requires GitHub link first).
 * [ ] Implement server-side caching (LRU) to save CPU on duplicate image requests.
 * [ ] Add AVIF encoding support (30% better compression, 10x slower).
 * [ ] Sync the whitelist across devices using `chrome.storage.sync`.
