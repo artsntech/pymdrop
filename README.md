@@ -5,8 +5,8 @@
 [![PymDrop on Firefox Add-ons](https://img.shields.io/badge/Firefox_Add--ons-Available-FF7139?logo=firefoxbrowser&logoColor=white)](https://addons.mozilla.org/addon/pymdrop/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org)
 [![Go Version](https://img.shields.io/badge/Go-1.23+-00ADD8?logo=go&logoColor=white)](https://go.dev)
-[![Chrome]([https://shields.io](https://img.shields.io/badge/Chrome-Manifest_V3-4285F4?logo=googlechrome&logoColor=white)](#)
-[![Firefox]([https://shields.io](https://img.shields.io/badge/Firefox-128+-FF7139?logo=firefoxbrowser&logoColor=white)](#)
+[![Chrome](https://img.shields.io/badge/Chrome-Manifest_V3-4285F4?logo=googlechrome&logoColor=white)](#)
+[![Firefox](https://img.shields.io/badge/Firefox-128+-FF7139?logo=firefoxbrowser&logoColor=white)](#)
 
 ![PymDrop Popup](docs/screenshot-popup.jpg)
 
