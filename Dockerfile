@@ -1,3 +1,4 @@
+# --- Build stage ---
 FROM golang:1.23-alpine AS builder
 
 WORKDIR /build
@@ -7,17 +8,27 @@ RUN go mod download
 
 COPY *.go ./
 
-RUN CGO_ENABLED=0 GOOS=linux go build \
+# Force amd64 architecture (most common on servers) and disable CGO for a static binary.
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
     -ldflags="-s -w" \
     -o pymdrop .
 
-FROM scratch
+# --- Runtime stage ---
+FROM alpine:3.19
 
-COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
-COPY --from=builder /build/pymdrop /pymdrop
+# Install TLS certificates and create a non-root user
+RUN apk add --no-cache ca-certificates && \
+    adduser -D -u 10001 pymdrop
 
-USER 65534:65534
+WORKDIR /app
+
+COPY --from=builder /build/pymdrop .
+
+# Grant execution permissions to the binary
+RUN chmod +x /app/pymdrop
+
+USER 10001
 
 EXPOSE 8080
 
-ENTRYPOINT ["/pymdrop"]
+ENTRYPOINT ["/app/pymdrop"]
