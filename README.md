@@ -83,11 +83,13 @@ cloudflared tunnel --url http://localhost:8080
 
 Copy the `https://...trycloudflare.com` URL that appears.
 
-> 💡 **Optional:** A Dockerfile is provided in the `server/` folder. If you prefer containers, run:
-> ```bash
-> docker build -t pymdrop .
-> docker run -p 8080:8080 pymdrop
-> ```
+## Docker
+If you prefer containers, a `Dockerfile` is included in the `server/` folder.
+```bash
+cd server
+docker build -t pymdrop .
+docker run -p 8080:8080 pymdrop
+```
 
 ### 2. Extension
 
