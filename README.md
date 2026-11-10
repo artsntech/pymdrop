@@ -71,7 +71,7 @@ Download the packages directly from the [GitHub Releases](https://github.com/art
    
 2. **Chrome / Edge / Brave:** Extract `pymdrop-chrome-v1.0.0.zip`, go to `chrome://extensions`, enable **Developer mode**, and click **Load unpacked**.
    
-3. **Firefox:** Install directly from the official Firefox Add-ons store [![PymDrop on Firefox Add-ons](https://img.shields.io/badge/Firefox_Add--ons-Available-FF7139?logo=firefoxbrowser&logoColor=white)](https://addons.mozilla.org/addon/pymdrop/).
+3. **Firefox:** Install directly from the [official Firefox Add-ons store](https://addons.mozilla.org/addon/pymdrop/).
 
 ### Build from Source
 *Prerequisites: Go 1.23+, Node.js 20+ & npm, Chrome 120+ or Firefox 128+.*
