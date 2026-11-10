@@ -61,35 +61,38 @@ The icon materializes this concept: a geometric drop containing a data funnel (t
 
 ## Installation
 
-### Prerequisites
-* Go 1.23+ for the server.
-* Node.js 20+ and npm for the extension.
-* Chrome 120+ or Firefox 128+.
+You can install the project quickly via pre-built binaries or build it from source.
 
-### 1. Server (Required)
-You can run the Go server locally and expose it for free, or deploy it to the cloud. Detailed instructions for all three methods are in `docs/setup-server.md`.
+### Quick Install (Pre-built Binaries & Extension)
 
-#### Quick Start (Local + Cloudflare Tunnel)
+Download the packages directly from the [GitHub Releases](https://github.com/artsntech/pymdrop/releases/tag/v1.0.0) page:
 
-```bash
-# Terminal 1 — Server
-cd server
-go build -o pymdrop .
-./pymdrop
+1. **Server:** Download `pymdrop-server-linux-amd64` or `pymdrop-server-windows-amd64.exe` and expose it via HTTPS (e.g., Cloudflare Tunnel).
+   
+2. **Chrome / Edge / Brave:** Extract `pymdrop-chrome-v1.0.0.zip`, go to `chrome://extensions`, enable **Developer mode**, and click **Load unpacked**.
+   
+3. **Firefox:** Install directly from the official Firefox Add-ons store [![PymDrop on Firefox Add-ons](https://img.shields.io/badge/Firefox_Add--ons-Available-FF7139?logo=firefoxbrowser&logoColor=white)](https://addons.mozilla.org/addon/pymdrop/).
 
-# Terminal 2 — Tunnel
-cloudflared tunnel --url http://localhost:8080
-```
+### Build from Source
+*Prerequisites: Go 1.23+, Node.js 20+ & npm, Chrome 120+ or Firefox 128+.*
 
-Copy the `https://...trycloudflare.com` URL that appears.
-
-## Docker
-If you prefer containers, a `Dockerfile` is included in the `server/` folder.
-```bash
-cd server
-docker build -t pymdrop .
-docker run -p 8080:8080 pymdrop
-```
+1. **Server:** Run locally or via Docker. Detailed steps are available in `docs/setup-server.md`.
+   
+   * **Local + Tunnel:**
+     ```bash
+     cd server && go build -o pymdrop ../pymdrop && ../pymdrop
+     cloudflared tunnel --url http://localhost:8080
+     ```
+     
+   * **Docker:**
+     ```bash
+     cd server && docker build -t pymdrop . && docker run -p 8080:8080 pymdrop
+     ```
+     
+2. **Extension:** Build for Chrome or Firefox and load it as an unpacked/temporary extension. For instance:
+   ```bash
+   cd extension && npm install && npm run build
+   ```
 
 ### 2. Extension
 
