@@ -7,6 +7,7 @@
 [![Go Version](https://img.shields.io/badge/Go-1.23+-00ADD8?logo=go&logoColor=white)](https://go.dev)
 [![Chrome](https://img.shields.io/badge/Chrome-Manifest_V3-4285F4?logo=googlechrome&logoColor=white)](#chrome)
 [![Firefox](https://img.shields.io/badge/Firefox-128+-FF7139?logo=firefoxbrowser&logoColor=white)](#firefox)
+[![CI](https://github.com/artsntech/pymdrop/actions/workflows/ci.yml/badge.svg)](https://github.com/artsntech/pymdrop/actions/workflows/ci.yml)
 
 ![PymDrop Popup](docs/screenshot-popup.jpg)
 
@@ -88,11 +89,6 @@ Download the packages directly from the [GitHub Releases](https://github.com/art
      ```bash
      cd server && docker build -t pymdrop . && docker run -p 8080:8080 pymdrop
      ```
-     
-2. **Extension:** Build for Chrome or Firefox and load it as an unpacked/temporary extension. For instance:
-   ```bash
-   cd extension && npm install && npm run build
-   ```
 
 ### 2. Extension
 
