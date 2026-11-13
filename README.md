@@ -129,12 +129,74 @@ For a deep dive into the architectural decisions (why not AVIF? why DNR instead 
 
 ---
 
+## Project Structure
+
+```text
+pymdrop/
+├── .github/
+│   └── workflows/
+│       └── ci.yml               # GitHub Actions CI (Go tests & extension builds)
+├── docs/
+│   ├── architecture.md          # Design decisions, DNR trade-offs & security model
+│   ├── setup-extension.md       # Build & installation guide for Chrome/Firefox
+│   ├── setup-server.md          # Hosting guides (Cloudflare Tunnel, Fly.io, Render, Docker)
+│   ├── screenshot-options.jpg   # Extension settings UI preview
+│   └── screenshot-popup.jpg     # Extension popup UI preview
+├── extension/
+│   ├── manifests/
+│   │   ├── manifest.chrome.json # Chrome MV3 manifest (service worker)
+│   │   └── manifest.firefox.json# Firefox MV3 manifest (event page & data consent)
+│   ├── public/                  # Extension icons (active & disabled states)
+│   ├── src/
+│   │   ├── App.tsx              # Popup UI (stats, quality slider, block filters)
+│   │   ├── Options.tsx          # Advanced settings UI (server URL, whitelist, button)
+│   │   ├── background.ts        # DNR rules engine & webRequest stats listener
+│   │   ├── content.ts           # Floating whitelist button injected into pages
+│   │   ├── main.tsx             # Popup entry point
+│   │   ├── options-entry.tsx    # Options page entry point
+│   │   └── shared.ts            # Shared types, storage helpers & domain normalization
+│   ├── index.html
+│   ├── options.html
+│   ├── package.json
+│   └── vite.config.ts           # Multi-target Vite build (Chrome & Firefox)
+├── server/
+│   ├── Dockerfile               # Multi-stage Alpine container build
+│   ├── .dockerignore
+│   ├── compressor.go            # Bounded CPU worker pool for WebP encoding
+│   ├── config.go                # Environment variable configuration
+│   ├── go.mod
+│   ├── go.sum
+│   ├── image_processor.go       # JPEG/PNG decoding, grayscale & WebP encoding
+│   ├── main.go                  # HTTP server, routes & graceful shutdown
+│   ├── netguard.go              # Dial-level SSRF protection (blocks private/loopback IPs)
+│   ├── proxy_engine.go          # HTTP proxy handler, Brotli/Gzip & HTML/CSS/JS minifier
+│   ├── pymdrop_test.go          # Unit tests (SSRF, WebP, decompression bombs, query)
+│   ├── query.go                 # Raw URL & parameter parser
+│   └── stats.go                 # Atomic real-time telemetry counters (/stats)
+├── .gitignore
+├── LICENSE
+└── README.md
+```
+
+---
+
 ## Known Limitations
 
 * **Facebook / Instagram:** These platforms use IP-signed tokens for image URLs. Because the proxy has a different IP, their CDNs reject the requests. These domains are pre-loaded into the default whitelist.
 * **Private Network Access:** Chrome blocks requests from HTTPS pages to `http://localhost`. You must use a public HTTPS URL (like a Cloudflare Tunnel or Fly.io).
 * **Already Optimized Images:** The extension only intercepts `.jpg`/`.jpeg`/`.png`. Sites serving WebP/AVIF natively are not touched (re-encoding WebP to WebP saves no bytes).
 * **JavaScript-heavy sites:** Using the "Block JavaScript" filter will break most modern SPAs (React/Vue apps, Twitter, YouTube). Use it only on text-heavy sites or with the whitelist.
+
+---
+
+## Testing
+
+The Go backend includes unit tests covering SSRF protection, WebP/grayscale transcoding, decompression bomb limits, and query parsing. These run automatically on every push via GitHub Actions.
+
+```bash
+cd server
+go test -v ./...
+```
 
 ---
 
